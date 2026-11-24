@@ -1,0 +1,41 @@
+# Setup Instructions
+
+Copy mr_seq_test.ex and the tests folder (with all subfolders) to the directory containing your mrseq.ex implementation.
+
+Ensure word_count.ex and indexer.ex are in the same directory.
+
+Start the Elixir interpreter:
+   iex
+
+Verify the interpreter's current working directory contains mrseq.ex and the above files.
+
+Compile the test file and your implementation:
+   c ["mr_seq_test.ex", "mrseq.ex"]
+
+Import the test module:
+   import MRSeqTest
+
+
+## Running Tests
+
+Run all tests:
+   test_all
+
+Run an individual test:
+For example, to run test_long_7 with the word count script:
+   test_fun.test_long_7.("word_count.ex")
+
+The complete list of individual tests is available in the test_fun function. Test names are self-explanatory (the integer indicates the number of input splits).
+
+Run all word count tests:
+   test_wc
+
+Run all indexer tests:
+   test_ind
+
+
+## Checking Results
+
+Model outputs for each test case are located in tests/test_out.
+
+If a test fails, use the diff command to compare your output with the model output.

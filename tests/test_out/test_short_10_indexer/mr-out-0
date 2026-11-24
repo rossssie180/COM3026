@@ -1,0 +1,11 @@
+{"and", "1 tests/test_short_10/part_09.txt"}
+{"brown", "2 tests/test_short_10/part_01.txt,tests/test_short_10/part_09.txt"}
+{"dog", "2 tests/test_short_10/part_04.txt,tests/test_short_10/part_05.txt"}
+{"fox", "2 tests/test_short_10/part_01.txt,tests/test_short_10/part_07.txt"}
+{"jumps", "1 tests/test_short_10/part_02.txt"}
+{"lazy", "2 tests/test_short_10/part_03.txt,tests/test_short_10/part_06.txt"}
+{"over", "1 tests/test_short_10/part_02.txt"}
+{"quick", "2 tests/test_short_10/part_00.txt,tests/test_short_10/part_08.txt"}
+{"the", "4 tests/test_short_10/part_00.txt,tests/test_short_10/part_03.txt,tests/test_short_10/part_04.txt,tests/test_short_10/part_07.txt"}
+{"very", "1 tests/test_short_10/part_06.txt"}
+{"was", "2 tests/test_short_10/part_05.txt,tests/test_short_10/part_08.txt"}
