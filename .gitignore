@@ -1,0 +1,11 @@
+# macOS files
+.DS_Store
+
+# Compiled Elixir artifacts
+*.beam
+_build/
+
+# Generated MapReduce output and intermediate files (root only)
+/mr-out-*
+/mr_out_all
+/mr-map-*

@@ -1,20 +1,17 @@
 defmodule MRSeq do
 
   def map_phase(files, mapf) do
-
-    # input: ["f1", "f2"] with
-    # f1: "a b"
-    # f2: "a"
-
-    # intermediate output for the word count mapper
-    [{"a", "1"}, {"b", "1"}, {"a", "2"}]
-
+    Enum.flat_map(files, fn file ->
+      content = File.read!(file)
+      mapf.(file, content)
+    end)
   end
 
   def reduce_phase(intermediate, reducef) do
-    # output for the word count reducer
-    [{"a", "3"}, {"b", "1"}]
-
+    intermediate
+      |> Enum.group_by(fn {k, _v} -> k end, fn {_k, v} -> v end)
+      |> Enum.map(fn {k, vals} -> {k, reducef.(k, vals)} end)
+      |> Enum.sort_by(fn {k, _v} -> k end)
   end
 
   def run_mr_job(prog, input_dir) do
