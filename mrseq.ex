@@ -7,11 +7,14 @@ defmodule MRSeq do
     end)
   end
 
-  def reduce_phase(intermediate, reducef) do
+def reduce_phase(intermediate, reducef) do
     intermediate
-      |> Enum.group_by(fn {k, _v} -> k end, fn {_k, v} -> v end)
-      |> Enum.map(fn {k, vals} -> {k, reducef.(k, vals)} end)
-      |> Enum.sort_by(fn {k, _v} -> k end)
+    |> Enum.sort_by(fn {k, _v} -> k end)
+    |> Enum.chunk_by(fn {k, _v} -> k end)
+    |> Enum.map(fn [{k, _v} | _] = slice ->
+      vals = Enum.map(slice, fn {_k, v} -> v end)
+      {k, reducef.(k, vals)}
+    end)
   end
 
   def run_mr_job(prog, input_dir) do
